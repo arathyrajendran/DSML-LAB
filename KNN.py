@@ -1,0 +1,12 @@
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import load_iris
+irisData=load_iris()
+print(irisData.data)
+X=irisData.data
+Y=irisData.target
+print(Y)
+x_train,x_test,y_train,y_test=train_test_split(X,Y,random_state=42)
+knn=KNeighborsClassifier(n_neighbors=7)
+knn.fit(x_train,y_train)
+print(knn.predict(x_test))
